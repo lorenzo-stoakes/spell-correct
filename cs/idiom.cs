@@ -60,7 +60,8 @@ class Corpus : ICorpus
 
     public int Rank(string word)
     {
-        return Contains(word) ? rankings[word] : 1;
+        int ret;
+        return rankings.TryGetValue(word, out ret) ? ret : 1;
     }
 
     public bool Contains(string word)
